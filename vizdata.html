@@ -6,7 +6,8 @@
 </head>
 <body>
   <script>
-    var dataArray=[20, 40, 50, 60];
+    var dataArray=[2, 40, 50, 60];
+
     var width = 500;
     var height = 500;
 
@@ -14,6 +15,11 @@
       d3.scaleLinear()
       .domain([0,60])
       .range([0, width]);
+
+    var axis =
+      d3.axisBottom()
+      .ticks(5)
+      .scale(widthScale)
 
     var color = 
       d3.scaleLinear()
@@ -24,7 +30,9 @@
       d3.select("body")
       .append("svg")
       .attr("width", width)
-      .attr("height", height);
+      .attr("height", height)
+      .append("g")
+      .attr("transform", "translate(20,0)");
 
     var bars =
       canvas.selectAll("rect")
@@ -35,6 +43,10 @@
         .attr("height", 50)
         .attr("fill", function(d) { return color(d); })
         .attr("y", function(d, i) {return i*100});
+
+    canvas.append("g")
+      .attr("transform", "translate(0,400)")
+      .call(axis);
 
   </script>
 
