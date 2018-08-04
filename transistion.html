@@ -20,19 +20,8 @@
   
   circle.transition()
       .duration(1500)
-      .delay(2000)
-      .attr("cy", 150)
       .attr("cx", 150)
-      .attr("r", 50)
-      .attr("fill", "red")
-    .transition()
-      .duration(1500)
-      .delay(1000)
-      .attr("cy", 250)
-      .attr("cx", 250)
-      .attr("r", 100)
-      .attr("fill", "blue");
-
+      .on("end", function () { d3.select(this).attr("fill","red"); });
 
 </script>
 
