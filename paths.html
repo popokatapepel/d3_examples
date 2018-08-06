@@ -1,0 +1,28 @@
+<meta charset="utf-8"> 
+<! doctype html>
+<html>
+<head>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+
+  <script>
+  var svg = d3.select("body").append("svg");
+  
+  var data = [
+              {x: 10, y: 20},
+              {x: 40, y: 60},
+              {x: 50, y: 70},
+             ];
+               
+  
+  var line = d3.line()
+    .x(function(d) {return d.x;})
+    .y(function(d) {return d.y;});
+    
+  svg.append('path').attr('d', line(data));
+    
+ </script>
+
+</body>
